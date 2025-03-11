@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TN01___WFCadastrar
+namespace WFormCadastroEndereco
 {
     public partial class FormCadastro : Form
     {
@@ -37,77 +37,77 @@ namespace TN01___WFCadastrar
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-     
 
-                Pessoa p1 = new Pessoa();
 
-                p1.NomeCompleto = txtNomeCompleto.Text;
+            Pessoa p1 = new Pessoa();
 
-                p1.DddTelefone = mkdtelefone.Text;
+            p1.NomeCompleto = txtNomeCompleto.Text;
 
-                p1.DataNascimento = dtpDatadenascimento.Value;
+            p1.DddTelefone = mkdtelefone.Text;
+
+            p1.DataNascimento = dtpDatadenascimento.Value;
 
             p1.Escolaridade = cbxEscolaridade.SelectedText;
 
             if (rdbMasculino.Checked)
 
-                {
+            {
 
-                    p1.sexo = 'M';
+                p1.sexo = 'M';
 
-                }
+            }
 
-                else if (RdbFeminino.Checked)
+            else if (RdbFeminino.Checked)
 
-                {
+            {
 
-                    p1.sexo = 'F';
+                p1.sexo = 'F';
 
-                }
+            }
 
-                else if (RdbNaoinformado.Checked)
+            else if (RdbNaoinformado.Checked)
 
-                {
+            {
 
-                    p1.sexo = 'N';
+                p1.sexo = 'N';
 
-                }
+            }
 
-                else
+            else
 
-                {
+            {
 
-                    MessageBox.Show("O Sexo não definido! ");
+                MessageBox.Show("O Sexo não definido! ");
 
-                    return;
+                return;
 
-                }
+            }
 
-                if (chkPossuiFilhos.CheckState == CheckState.Checked)
+            if (chkPossuiFilhos.CheckState == CheckState.Checked)
 
-                {
+            {
 
-                    p1.PossuiFilhos = true;
+                p1.PossuiFilhos = true;
 
-                }
+            }
 
-                else if (chkPossuiFilhos.CheckState == CheckState.Unchecked)
+            else if (chkPossuiFilhos.CheckState == CheckState.Unchecked)
 
-                {
+            {
 
-                    p1.PossuiFilhos = false;
+                p1.PossuiFilhos = false;
 
-                }
+            }
 
-                else
+            else
 
-                {
+            {
 
-                    MessageBox.Show("Faltou marcar se tem Filhos!");
+                MessageBox.Show("Faltou marcar se tem Filhos!");
 
-                    return;
+                return;
 
-                }
+            }
 
             Pessoa.ListaPessoas.Add(p1);
 
@@ -118,9 +118,13 @@ namespace TN01___WFCadastrar
 
         }
 
-        }
+        private void FormCadastro_Load(object sender, EventArgs e)
+        {
 
+        }
     }
+
+}
 
 
 

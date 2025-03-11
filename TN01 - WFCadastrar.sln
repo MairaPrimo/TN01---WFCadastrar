@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN01 - WFCadastrar", "TN01 - WFCadastrar\TN01 - WFCadastrar.csproj", "{7A025799-4BBD-4072-857F-2C3407FD289D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFormCadastroEndereco", "WFormCadastroEndereco\WFormCadastroEndereco.csproj", "{D3B6D700-CBD7-4363-81E9-2328F30E8F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN01 -WFCadastroContato", "TN01 -WFCadastroContato\TN01 -WFCadastroContato.csproj", "{50EFBDB0-6422-4150-A0C4-E945213AF7F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7A025799-4BBD-4072-857F-2C3407FD289D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A025799-4BBD-4072-857F-2C3407FD289D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A025799-4BBD-4072-857F-2C3407FD289D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B6D700-CBD7-4363-81E9-2328F30E8F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B6D700-CBD7-4363-81E9-2328F30E8F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B6D700-CBD7-4363-81E9-2328F30E8F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B6D700-CBD7-4363-81E9-2328F30E8F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EFBDB0-6422-4150-A0C4-E945213AF7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EFBDB0-6422-4150-A0C4-E945213AF7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EFBDB0-6422-4150-A0C4-E945213AF7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EFBDB0-6422-4150-A0C4-E945213AF7F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
