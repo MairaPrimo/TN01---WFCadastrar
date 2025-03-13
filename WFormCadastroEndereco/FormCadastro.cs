@@ -15,112 +15,85 @@ namespace WFormCadastroEndereco
         public FormCadastro()
         {
             InitializeComponent();
-            cbxEscolaridade.SelectedIndex = 0;
         }
-        private void LimpaFormulario()
-        {
-            txtNomeCompleto.Clear();
-            mkdtelefone.Clear();
-            dtpDatadenascimento.Value = DateTime.Now;
-            cbxEscolaridade.SelectedIndex = 0;
-            RdbFeminino.Checked = false;
-            rdbMasculino.Checked = false;
-            RdbNaoinformado.Checked = false;
-            nudRendaMensal.Value = 0;
-            chkPossuiFilhos.CheckState =
-                CheckState.Indeterminate;
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
 
+        public void Alerta(string mensagem = "")
+        {
+            MessageBox.Show(mensagem, "Alerta",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public void Erro(string mensagem = "")
+        {
+            MessageBox.Show(mensagem, "Erro",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public void Sucesso(string mensagem = "")
+        {
+            MessageBox.Show(mensagem, "Sucesso",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            Endereco end = new Endereco();
 
-
-            Pessoa p1 = new Pessoa();
-
-            p1.NomeCompleto = txtNomeCompleto.Text;
-
-            p1.DddTelefone = mkdtelefone.Text;
-
-            p1.DataNascimento = dtpDatadenascimento.Value;
-
-            p1.Escolaridade = cbxEscolaridade.SelectedText;
-
-            if (rdbMasculino.Checked)
-
+            if (string.IsNullOrEmpty(mtbCep.Text))
             {
-
-                p1.sexo = 'M';
-
-            }
-
-            else if (RdbFeminino.Checked)
-
-            {
-
-                p1.sexo = 'F';
-
-            }
-
-            else if (RdbNaoinformado.Checked)
-
-            {
-
-                p1.sexo = 'N';
-
-            }
-
-            else
-
-            {
-
-                MessageBox.Show("O Sexo não definido! ");
-
+                Erro("Campo Vazio");
                 return;
-
             }
-
-            if (chkPossuiFilhos.CheckState == CheckState.Checked)
-
+            if (string.IsNullOrEmpty(txtLogradouro.Text))
             {
-
-                p1.PossuiFilhos = true;
-
-            }
-
-            else if (chkPossuiFilhos.CheckState == CheckState.Unchecked)
-
-            {
-
-                p1.PossuiFilhos = false;
-
-            }
-
-            else
-
-            {
-
-                MessageBox.Show("Faltou marcar se tem Filhos!");
-
+                Erro("Campo Vazio");
                 return;
-
             }
+            if (string.IsNullOrEmpty(txtNumero.Text))
+            {
+                Erro("Campo Vazio");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtBairro.Text))
+            {
+                Erro("Campo Vazio");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtCidade.Text))
+            {
+                Erro("Campo Vazio");
+                return;
+            }
+            if (string.IsNullOrEmpty(cbxUf.SelectedItem?.ToString()))
+            {
+                Erro("Campo Vazio");
+                return;
+            }
+            Endereco endereco = new Endereco();
+            end.Logradouro = txtLogradouro.Text;
+            end.Cep = mtbCep.Text;
+            //Se o sem numero está marcado, então fica vazio o texto do Numero.
+            end.Numero = chkSemNumero.Checked ? "S/N" : txtNumero.Text;
+            end.Nome = txtNomeCompleto.Text;
+            end.Bairro = txtBairro.Text;
+            end.Cidade = txtCidade.Text;
+            end.Uf = cbxUf.SelectedItem.ToString();
+            end.Complemento = txtComplemento.Text;
+            end.SemNumero = chkSemNumero.Checked;
 
-            Pessoa.ListaPessoas.Add(p1);
+            string mensagem = @$"
+                Nome: {end.Nome}
+                Cep: {end.Cep}
+                Logradouro: {end.Logradouro}
+                Numero: {end.Numero}
+                Bairro: {end.Bairro}
+                Cidade: {end.Cidade}
+                Estado: {end.Uf}
+                Complemento: {end.Complemento}               
+             ";
 
-            MessageBox.Show("Cadastro realizado com sucesso!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Adicionando na Lista de Endereços
+            Endereco.ListaEnderecos.Add(end);
 
-
-
-
-        }
-
-        private void FormCadastro_Load(object sender, EventArgs e)
-        {
-
+            Sucesso(mensagem);
         }
     }
 

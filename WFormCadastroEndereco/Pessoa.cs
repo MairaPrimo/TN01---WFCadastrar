@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TN01 WFCadastroContrato
+namespace TN01WFCadastroContrato
 {
     public class Pessoa
     {
